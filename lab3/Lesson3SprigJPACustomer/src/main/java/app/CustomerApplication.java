@@ -1,6 +1,5 @@
 package app;
 
-import java.util.List;
 import java.util.Optional;
 
 import domain.Book;
@@ -15,7 +14,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import repositories.BookRepository;
 import repositories.CustomerRepository;
-import domain.Customer;
+import lab5.Lab4PartB.src.main.java.domain.Customer;
 
 @SpringBootApplication
 @EnableJpaRepositories("repositories")

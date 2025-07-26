@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 
-import domain.Customer;
+import lab5.Lab4PartB.src.main.java.domain.Customer;
 
 
 public interface CustomerRepository extends JpaRepository<Customer, Long> {

@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import repositories.AddressRepository;
-import repositories.OrderRepository;
+import lab5.Lab4PartB.src.main.java.repositories.OrderRepository;
 import repositories.ProductRepository;
 
 @SpringBootApplication
@@ -23,7 +23,7 @@ public class OrderApplication implements CommandLineRunner{
 	ProductRepository productRepository;
 
 	public static void main(String[] args) {
-		SpringApplication.run(OrderApplication.class, args);
+		SpringApplication.run(lab5.Lab4PartB.src.main.java.app.OrderApplication.class, args);
 	}
 
 	@Override
