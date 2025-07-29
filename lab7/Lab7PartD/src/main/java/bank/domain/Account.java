@@ -1,44 +1,45 @@
 package bank.domain;
 
-import jakarta.persistence.*;
-
 import java.util.*;
+import jakarta.persistence.*;
 
 @Entity
 public class Account {
-	@Id
-	@GeneratedValue
-	private Long id;
+	@Id  
+	long accountnumber;
 
-	private Long accountnumber;
+	@OneToMany (cascade={CascadeType.ALL})
+	@JoinColumn(name="accountnr")
+	Collection<AccountEntry> entryList = new ArrayList<AccountEntry>();
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "acc_id")
-	List<AccountEntry> entryList = new ArrayList();
-
-	@Embedded
+	@ManyToOne (cascade={CascadeType.ALL}, fetch=FetchType.LAZY)
+	@JoinColumn(name="customerid")
 	Customer customer;
 
-	public Account (){
+	public Account() {
 	}
 
 	public Account (long accountnr){
 		this.accountnumber = accountnr;
 	}
-
 	public long getAccountnumber() {
 		return accountnumber;
 	}
 	public void setAccountnumber(long accountnumber) {
 		this.accountnumber = accountnumber;
 	}
-
-	public void deposit(double amount) {
+	public double getBalance() {
+		double balance=0;
+		for (AccountEntry entry : entryList) {
+			balance+=entry.getAmount();
+		}
+		return balance;
+	}
+	public void deposit(double amount){
 		AccountEntry entry = new AccountEntry(new Date(), amount, "deposit", "", "");
 		entryList.add(entry);
 	}
-
-	public void withdraw(double amount) {
+	public void withdraw(double amount){
 		AccountEntry entry = new AccountEntry(new Date(), -amount, "withdraw", "", "");
 		entryList.add(entry);	
 	}
@@ -53,23 +54,15 @@ public class Account {
 		entryList.add(fromEntry);	
 		toAccount.addEntry(toEntry);
 	}
-	
+
 	public Customer getCustomer() {
 		return customer;
 	}
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
-	public List<AccountEntry> getEntryList() {
+	public Collection<AccountEntry> getEntryList() {
 		return entryList;
 	}
 
-	@Override
-	public String toString() {
-		return "Account{" +
-				"accountnumber=" + accountnumber +
-				", entryList=" + entryList +
-				", customer=" + customer +
-				'}';
-	}
 }
