@@ -1,0 +1,33 @@
+.container {
+  max-width: 700px;
+  margin: auto;
+  padding: 2rem;
+  font-family: sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+section {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+input,
+select {
+  margin-right: 8px;
+  margin-top: 6px;
+  padding: 6px 10px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 6px 12px;
+  font-size: 1rem;
+  margin-top: 6px;
+  cursor: pointer;
+}
