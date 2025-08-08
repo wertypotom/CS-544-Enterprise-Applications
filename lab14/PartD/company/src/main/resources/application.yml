@@ -1,0 +1,27 @@
+
+spring:
+  ai:
+    openai:
+      chat:
+        options:
+          model: gpt-4o
+      api-key: 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
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/eadb
+    username: root
+    password: root
+    driver-class: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+
+logging:
+  level:
+    root: INFO
+server:
+  port: 8081
+
+
