@@ -1,0 +1,35 @@
+spring:
+  ai:
+    openai:
+      chat:
+        options:
+          model: gpt-4o
+
+      api-key: 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
+    mcp:
+      server:
+        stdio: false
+        name: profit-server
+        version: 1.0.0
+        enabled: true
+        type: sync
+        capabilities:
+          tool: true
+        sse-endpoint: /sse
+        sse-message-endpoint: /mcp/message
+  datasource:
+    url: jdbc:mysql://localhost:3306/eadb
+    username: root
+    password: root
+    driver-class: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+
+logging:
+  level:
+    root: INFO
+server:
+  port: 8080

@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+spring:
+  ai:
+    openai:
+      api-key: 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
+      embedding:
+        options:
+          model: text-embedding-3-small
+    vectorstore:
+      redis:
+        index-name: rental-idx
+        prefix: rental
+        initialize-schema: true
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+logging.level.org.springframework.ai: INFO

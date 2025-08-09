@@ -1,0 +1,38 @@
+
+spring:
+  ai:
+    openai:
+      chat:
+        options:
+          model: gpt-4o
+      api-key: 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
+
+    mcp:
+      client:
+        enabled: true
+        toolcallback:
+          enabled: true
+        type: sync
+        sse:
+          connections:
+            server1:
+              url: http://localhost:8080
+              sse-endpoint: /sse
+  datasource:
+    url: jdbc:mysql://localhost:3306/eadb
+    username: root
+    password: root
+    driver-class: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+
+logging:
+  level:
+    root: INFO
+server:
+  port: 8081
+
+
